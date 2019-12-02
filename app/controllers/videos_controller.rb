@@ -1,10 +1,12 @@
 class VideosController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
-    
+    @videos = Video.all.order(id: :desc)
   end
 
   def create
-    @video = Video.new(video_params)
+    @video = current_user.videos.new(video_params)
     if @video.save
       flash[:success] = 'Video added!'
       redirect_to root_url

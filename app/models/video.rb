@@ -1,5 +1,6 @@
 class Video < ApplicationRecord
-  YOUTUBE_LINK_FORMAT =  /(?:youtube.com|youtu.be).*(?:\/|v=)([a-zA-Z0-9_-]+)/
+
+  YOUTUBE_LINK_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
 
   validates :link, presence: true, format: YOUTUBE_LINK_FORMAT
   
@@ -16,18 +17,20 @@ class Video < ApplicationRecord
     end
   end
 
+  belongs_to :user
+
+  delegate :email, to: :user
+
   private
 
   def get_video_info
     begin
-      client = YouTubeIt::Client.new(dev_key: 'AIzaSyB3VvFEA7CJiWg26JKDlv_1qEUeCCr4Dx4')
-      video = client.video_by(link)
+      video = Yt::Video.new(id: self.uid)
       self.title = video.title
       self.description = video.description
     rescue
-      self.title = ''
-      self.description = ''
+      self.title = 'N#A'
+      self.description = 'N#A'
     end
   end
-
 end
