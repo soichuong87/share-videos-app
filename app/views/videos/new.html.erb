@@ -2,7 +2,7 @@
   <fieldset>
     <legend>Share a Youtube movie</legend>
     <div class="container">
-    <%= form_with model: @video do |f|%>
+    <%= form_with model: @video, id: "share_movie" do |f|%>
       <div class="form-group row">
         <label for="url" class="col-md-2 col-form-label">Youtube Url:</label>
         <div class="col-md-9">

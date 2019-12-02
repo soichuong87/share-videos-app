@@ -62,7 +62,7 @@ group :development do
 end
 
 group :test do
-  gem 'factory_bot'
+  gem 'factory_bot_rails'
   gem 'rspec', '~> 3.9'
   gem 'rspec-rails', '~> 3.9'
   
