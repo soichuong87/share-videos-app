@@ -24,3 +24,4 @@ test:
 production:
   <<: *default
   database: share-video-pro
+  url: <%= ENV["DATABASE_URL"] %>
