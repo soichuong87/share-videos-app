@@ -10,7 +10,7 @@
     </ul>
     <% if user_signed_in? %>
       <span>Welcome <%= current_user.email %></span>
-      <button class="btn btn-outline-success my-2 my-sm-0" style="margin: 10px 10px;">Share a movie</button>
+      <a href="/share" class="btn btn-outline-success my-2 my-sm-0" style="margin: 10px 10px;">Share a movie</a>
       <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "btn btn-outline-success my-2 my-sm-0") %>
     <% else %>
       <%= form_for(:user, :url => session_path(:user), class: "form-inline my-2 my-lg-0", method: :post) do |f| %>
