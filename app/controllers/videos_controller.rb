@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
-  before_action :authenticate_user!
-  
+  before_action :authenticate_user!, except: [:index]
+
   def index
     @videos = Video.all.order(id: :desc)
   end
