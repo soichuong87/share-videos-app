@@ -1,22 +1,22 @@
 <% @videos.each do |video| %>
-  <div class="row">
+  <div class="row video-item">
     <div class="card mb-8 border-0">
       <div class="row no-gutters">
-        <div class="col-md-4">
-          <div class="card-body">
-            <iframe width="280" height="180"
+        <div class="col-md-5">
+          <div class="card-body video-iframe">
+            <iframe width="100%" height="238px"
             src="https://www.youtube.com/embed/<%= video.uid %>">
             </iframe>
           </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7">
           <div class="card-body">
             <h5 class="card-title"><%= video.title %></h5>
             <p>Shared by: <%= video.user&.email %></p>
-            <p class="card-text">
-              <span>Description: </span></br>
-              <%= raw(video.description) %>
-            </p>
+            <div class="card-text">
+              <div>Description: </div>
+              <div class="description"><%= raw(video.description) %></div>
+            </div>
           </div>
         </div>
       </div>
