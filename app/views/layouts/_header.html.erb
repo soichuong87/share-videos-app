@@ -15,10 +15,10 @@
       <%= form_for(:user, :url => session_path(:user), class: "form-inline my-2 my-lg-0", method: :post) do |f| %>
         <div class="row">
           <div class="col">
-            <%= f.text_field :email, class: "form-control", placeholder: "Email", autocomplete: "off" %>
+            <%= f.text_field :email, class: "form-control email", placeholder: "Email", autocomplete: "off" %>
           </div>
           <div class="col">
-            <%= f.password_field :password, class: "form-control", placeholder: "Password", autocomplete: "off" %>
+            <%= f.password_field :password, class: "form-control password", placeholder: "Password", autocomplete: "off" %>
           </div>
           <div class="col">
             <%= f.submit 'Login / Register', class: "btn btn-outline-success my-2 my-sm-0" %>

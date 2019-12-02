@@ -49,6 +49,7 @@ gem 'yt', '~> 0.32.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'cucumber-rails', require: false
 end
 
 group :development do
@@ -61,11 +62,22 @@ group :development do
 end
 
 group :test do
+  gem 'factory_bot'
+  gem 'rspec', '~> 3.9'
+  gem 'rspec-rails', '~> 3.9'
+  
+  # Mocks/Stubs, Fixtures, DB Stuff
+  gem 'shoulda'
+  gem 'database_cleaner',   "~> 1.6.0"
+
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rails-controller-testing'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
