@@ -12,15 +12,19 @@ class SessionsController < Devise::SessionsController
         sign_in(resource)
         respond_with resource, :location => after_sign_in_path_for(resource)
       else
-
+        redirect_to root_path, alert: "Password wrong"
       end
+
     else
+      
       resource = User.new(resource_params)
       if resource.save
         sign_in(resource)
         respond_with resource, :location => after_sign_in_path_for(resource)
       else
+        redirect_to root_path, alert: resource.errors.full_messages.first
       end
+    
     end
   end
 
